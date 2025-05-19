@@ -1,40 +1,39 @@
-use v6.c;
-unit module Pod::Load:ver<0.7.2>;
+unit module RakuDoc::Load;
 
-use X::Pod::Load::SourceErrors;
+use X::RakuDoc::Load::SourceErrors;
 
 =begin pod
 
 =head1 NAME
 
-Pod::Load - Loads and compiles the Pod documentation from a string, file or
+RakuDoc::Load - Loads and compiles the RakuDoc documentation from a string, file or
 filehandle.
 
 =head1 SYNOPSIS
 
-    use Pod::Load;
+    use RakuDoc::Load;
 
     # Read a file handle.
-    my $pod = load("file-with.pod6".IO);
-    say $pod.perl; # Process it as a Pod
+    my $rakudoc = load("file-with.rakudoc".IO);
+    say $rakudoc.raku; # Process it as a RakuDoc
 
     # Or use simply the file name (it should exist)
-    my @pod = load("file-with.pod6");
-    say .perl for @pod;
+    my @rakudoc = load("file-with.rakudoc");
+    say .raku for @rakudoc;
 
-    my $string-with-pod = q:to/EOH/;
+    my $string-with-rakudoc = q:to/HERE/;
     =begin pod
     This ordinary paragraph introduces a code block:
     =end pod
-    EOH
+    HERE
 
-    say load( $string-with-pod ).perl;
+    say load( $string-with-rakudoc ).raku;
 
 =head1 DESCRIPTION
 
-C<Pod::Load> is a module with a simple task (and interface):
+C<RakuDoc::Load> is a module with a simple task (and interface):
 obtaining the documentation tree of an external file in a standard,
-straighworward way. Its mechanism (using EVAL) is inspired by
+straightforward way. Its mechanism (using EVAL) is inspired by
 L<C<Pod::To::BigPage>|https://github.com/perl6/perl6-pod-to-bigpage>,
 although it will use precompilation in case of files.
 
@@ -45,13 +44,32 @@ it's going to run what is actually there. If you don't want that to
 happen, strip all runnable code from the string (or file) before
 submitting it to C<load>.
 
-=head1 AUTHOR
+=head1 Credits
 
-JJ Merelo <jjmerelo@gmail.com>
+The utility of this module is completely due to the work of my friend 
+and Raku mentor, Juan Merelo (aka JJ). This module started with a copy
+of his 'Pod::Load:ver<0.7.2>'. I have always found it useful, and know
+that it will continue to be useful in the foreseeable future.
+
+But it needed a 'face lift' to modernize
+the contents with respect to the major changes involved from the rename
+of Perl 6 to Raku and the ensuing changes such as the renaming of Pod to RakuDoc.
+
+=head2 Major changes
+
+Most of the user code is the same but with the following changes:
+
+=item Change 'Pod' to 'RakuDoc'
+=item Change 'pod' to 'rakudoc' (with one **important** exception, see the next item)
+=item Keep the current restriction with Raku to only accept =begin/=end pod delimiters inside RakuDoc files
+=item Convert the repository qstructure to be managed by **App::Mi6**
+
+=head1 AUTHOR
+Tom Browder <tbrowder@acm.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2018,2019,2020 JJ Merelo
+Copyright 2025 Tom Browder
 
 This library is free software; you can redistribute it and/or modify
 it under the Artistic License 2.0. 

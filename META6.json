@@ -8,13 +8,13 @@
   "depends": [
     "File::Temp"
   ],
-  "description": "Loads and compiles the Pod documentation from a string, file or",
+  "description": "Loads and compiles the RakuDoc documentation from a string, file or",
   "license": "Artistic-2.0",
-  "name": "Pod::Load",
+  "name": "RakuDoc::Load",
   "perl": "6.c",
   "provides": {
-    "Pod::Load": "lib/Pod/Load.rakumod",
-    "X::Pod::Load::SourceErrors": "lib/X/Pod/Load/SourceErrors.rakumod"
+    "RakuDoc::Load": "lib/RakuDoc/Load.rakumod",
+    "X::RakuDoc::Load::SourceErrors": "lib/X/RakuDoc/Load/SourceErrors.rakumod"
   },
   "resources": [
     "examples/pod-load-clean.raku",

@@ -5,9 +5,9 @@ NAME
 
 
 
-**Pod::Load** - Loads and compiles the Rakudoc documentation of an external file or a string
+**RakuDOC::Load** - Loads and compiles the RakuDoc documentation of an external file or a string
 
-**Note**: This module's name was chosen before Perl 6 was renamed to Raku and Pod (or Pod6) was renamed to Rakudoc. Most internal references were renamed accordingly, but the module's original name will be retained. Note also that, as of this release, Raku cannot handle '=begin/= rakudoc' document delimiters.
+**Note**: As of this release, Raku cannot handle '=begin/= rakudoc' document delimiters.
 
 SYNOPSIS
 ========
@@ -15,11 +15,11 @@ SYNOPSIS
 
 
     use Pod::Load;
-    use X::Pod::Load::SourceErrors;
+    use X::RakuDoc::Load::SourceErrors;
 
     # Read a file handle.
     my $rakudoc = load("file-with.rakudoc".IO);
-    say $rakudoc.raku; # Process it as a Rakudoc
+    say $rakudoc.raku; # Process it as a RakuDoc
 
     # Or simply use the file name
     my @rakudoc = load("file-with.rakudoc");
@@ -29,7 +29,7 @@ SYNOPSIS
     @rakudoc = load("=begin pod\nThis could be a comment with C<code>\n=end pod");
 
     # Or ditch the scaffolding and use the string directly:
-    @rakudoc = load-pod("This could be a comment with C<code>");
+    @rakudoc = load-rakudoc("This could be a comment with C<code>");
 
     # If there's an error, it will throw X::Pod::Load::SourceErrors
 
