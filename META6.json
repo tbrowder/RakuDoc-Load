@@ -1,0 +1,32 @@
+{
+  "auth": "zef:jjmerelo",
+  "authors": [
+    "JJ Merelo"
+  ],
+  "build-depends": [
+  ],
+  "depends": [
+    "File::Temp"
+  ],
+  "description": "Loads and compiles the Pod documentation from a string, file or",
+  "license": "Artistic-2.0",
+  "name": "Pod::Load",
+  "perl": "6.c",
+  "provides": {
+    "Pod::Load": "lib/Pod/Load.rakumod",
+    "X::Pod::Load::SourceErrors": "lib/X/Pod/Load/SourceErrors.rakumod"
+  },
+  "resources": [
+    "examples/pod-load-clean.raku",
+    "examples/README.md"
+  ],
+  "source-url": "https://github.com/JJ/p6-pod-load.git",
+  "tags": [
+    "Rakudoc",
+    "Pod",
+    "Documentation"
+  ],
+  "test-depends": [
+  ],
+  "version": "0.7.2"
+}
