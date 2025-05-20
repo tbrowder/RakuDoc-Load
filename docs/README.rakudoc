@@ -10,7 +10,7 @@ document delimiters.
 =SYNOPSIS
 
 =begin code
-use Pod::Load;
+use RakuDoc::Load;
 use X::RakuDoc::Load::SourceErrors;
 
 # Read a file handle.
@@ -27,12 +27,12 @@ say .raku for @rakudoc;
 # Or ditch the scaffolding and use the string directly:
 @rakudoc = load-rakudoc("This could be a comment with C<code>");
     
-# If there's an error, it will throw X::Pod::Load::SourceErrors
+# If there's an error, it will throw X::RakuDoc::Load::SourceErrors
 =end code
 
 =DESCRIPTION
 
-Pod::Load is a module with a simple task: obtain the documentation of an
+RakuDoc::Load is a module with a simple task: obtain the documentation of an
 external file in a standard, straightforward way.
 
 Its mechanism was originally inspired by

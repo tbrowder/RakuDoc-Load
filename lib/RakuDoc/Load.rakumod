@@ -34,7 +34,7 @@ filehandle.
 C<RakuDoc::Load> is a module with a simple task (and interface):
 obtaining the documentation tree of an external file in a standard,
 straightforward way. Its mechanism (using EVAL) is inspired by
-L<C<Pod::To::BigPage>|https://github.com/perl6/perl6-pod-to-bigpage>,
+L<C<RakuDoc::To::BigPage>|https://github.com/perl6/perl6-pod-to-bigpage>,
 although it will use precompilation in case of files.
 
 =head1 CAVEATS
@@ -48,18 +48,18 @@ submitting it to C<load>.
 
 The utility of this module is completely due to the work of my friend 
 and Raku mentor, Juan Merelo (aka JJ). This module started with a copy
-of his 'Pod::Load:ver<0.7.2>'. I have always found it useful, and know
+of his 'RakuDoc::Load:ver<0.7.2>'. I have always found it useful, and know
 that it will continue to be useful in the foreseeable future.
 
 But it needed a 'face lift' to modernize
 the contents with respect to the major changes involved from the rename
-of Perl 6 to Raku and the ensuing changes such as the renaming of Pod to RakuDoc.
+of Perl 6 to Raku and the ensuing changes such as the renaming of RakuDoc to RakuDoc.
 
 =head2 Major changes
 
 Most of the user code is the same but with the following changes:
 
-=item Change 'Pod' to 'RakuDoc'
+=item Change 'RakuDoc' to 'RakuDoc'
 =item Change 'pod' to 'rakudoc' (with one **important** exception, see the next item)
 =item Keep the current restriction with Raku to only accept =begin/=end pod delimiters inside RakuDoc files
 =item Convert the repository qstructure to be managed by **App::Mi6**
@@ -79,8 +79,8 @@ it under the Artistic License 2.0.
 use MONKEY-SEE-NO-EVAL;
 use File::Temp; # For tempdir below
 
-#| The string here should be valid Pod markup, without the enclosing stuff
-sub load-pod( Str $string ) is export {
+#| The string here should be valid RakuDoc markup, without the enclosing stuff
+sub load-rakudoc( Str $string ) is export {
     return load(qq:to/EOP/);
 =begin pod
 $string
@@ -88,7 +88,7 @@ $string
 EOP
 }
 
-#| Loads a Raku code string, returns the Pod that could be included in it
+#| Loads a Raku code string, returns the RakuDoc that could be included in it
 multi sub load ( Str $string ) is export {
     my $module-name = "m{rand}";
     my $copy = $string;
@@ -122,7 +122,7 @@ multi sub load( Str $file where .IO.e ) {
             );
     CATCH {
         default {
-            X::Pod::Load::SourceErrors.new(:error( .message.Str )).throw
+            X::RakuDoc::Load::SourceErrors.new(:error( .message.Str )).throw
         }
     }
     nqp::atkey($handle.unit, '$=pod')

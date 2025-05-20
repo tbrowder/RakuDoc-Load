@@ -1,7 +1,8 @@
 {
-  "auth": "zef:jjmerelo",
+  "auth": "zef:tbrowder",
   "authors": [
-    "JJ Merelo"
+    "JJ Merelo",
+    "Tom Browder"
   ],
   "build-depends": [
   ],
@@ -20,7 +21,7 @@
     "examples/pod-load-clean.raku",
     "examples/README.md"
   ],
-  "source-url": "https://github.com/JJ/p6-pod-load.git",
+  "source-url": "https://github.com/tbrowder/RakuDoc-Load.git",
   "tags": [
     "Rakudoc",
     "Pod",
@@ -28,5 +29,5 @@
   ],
   "test-depends": [
   ],
-  "version": "0.7.2"
+  "version": "0.0.1"
 }

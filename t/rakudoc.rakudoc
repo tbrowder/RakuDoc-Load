@@ -1,28 +1,28 @@
-=begin pod :tag<raku>
+=begin pod :tag<rakudoc>
 
-=TITLE Rakudoc
+=TITLE RakuDoc
 
 =SUBTITLE An easy-to-use markup language for documenting Raku modules and programs
 
-Rakudoc is an easy-to-use markup language. Rakudoc can be used for
+RakuDoc is an easy-to-use markup language. RakuDoc can be used for
 writing language documentation, for documenting programs and modules, as
 well as for other types of document composition.
 
-Every Rakudoc document has to begin with C<=begin pod> and end with C<=end pod>.
+Every RakuDoc document has to begin with C<=begin pod> and end with C<=end pod>.
 Everything between these two delimiters will be processed and used to generate
 documentation.
 
 =begin code :lang<rakudoc>
 =begin pod
 
-A very simple Rakudoc document
+A very simple RakuDoc document
 
 =end pod
 =end code
 
 =head1 Block structure
 
-A Rakudoc document may consist of multiple Rakudoc blocks. There are four ways to define
+A RakuDoc document may consist of multiple RakuDoc blocks. There are four ways to define
 a block: delimited, paragraph, abbreviated, and declarator; the first three
 yield the same result, but the fourth differs. You can use whichever form is most
 convenient for your particular documentation task.
@@ -73,7 +73,7 @@ outside of strings. Hash keys need not be quote-delimited unless they contain
 significant whitespace. Strings entered inside angle brackets become lists if
 any whitespace is used inside the angle brackets.
 
-All option keys and values must, of course, be constants since Rakudoc is a
+All option keys and values must, of course, be constants since RakuDoc is a
 specification language, not a programming language. Specifically, option
 values cannot be closures. See Synopsis 2 for details of the various
 Raku pair notations.
@@ -87,7 +87,7 @@ line as the C<=begin> marker line or C<=for name> for paragraph blocks.>
 =head2 Paragraph blocks
 
 Paragraph blocks begin by a C<=for> marker and end by
-the next Rakudoc directive or the first blank line.
+the next RakuDoc directive or the first blank line.
 The C<=for> marker is followed by the C<typename> of the block
 plus, optionally, any configuration data as in the delimited
 blocks described above.
@@ -102,7 +102,7 @@ Top Level Heading
 Abbreviated blocks begin by an C<'='> sign, which is followed immediately by the
 C<typename> of the block. All following data are part of the contents of the
 block, thus configuration data B<cannot> be specified for an I<abbreviated>
-block. The block ends at the next Rakudoc directive or the first blank line.
+block. The block ends at the next RakuDoc directive or the first blank line.
 
 =begin code :lang<rakudoc>
 =head1 Top level heading
@@ -127,7 +127,7 @@ Since declarator blocks are attached to source code, they can be used to
 document classes, roles, subroutines and in general any statement or block.
 
 The C<WHY> method can be used on these classes, roles, subroutines etc. to
-return the attached Rakudoc value.
+return the attached RakuDoc value.
 
 =begin code
 #| Base class for magicians
@@ -171,7 +171,7 @@ a multi-line display by C<raku -doc>.
 
 =head1 Block types
 
-Rakudoc offers a wide range of standard block types.
+RakuDoc offers a wide range of standard block types.
 
 =head2 Headings
 
@@ -409,9 +409,9 @@ As you can see, folk wisdom is often of dubious value.
 Check out this page for documentation related to L<Tables|/language/tables>
 Z<Eventually copy everything from tables.rakudoc and put it here>
 
-=head2 Rakudoc comments
+=head2 RakuDoc comments
 
-Rakudoc comments are comments that Rakudoc renderers ignore.
+RakuDoc comments are comments that RakuDoc renderers ignore.
 
 Comments are useful for meta-documentation (documenting the documentation). Single-line comments use the C<comment> keyword:
 
@@ -445,7 +445,7 @@ publishing, source components, or meta-information.
 
 Formatting codes provide a way to add inline mark-up to a piece of text.
 
-All Rakudoc formatting codes consist of a single capital letter followed immediately
+All RakuDoc formatting codes consist of a single capital letter followed immediately
 by a set of single or double angle brackets; Unicode double angle brackets may
 be used.
 
@@ -636,7 +636,7 @@ Z<If used will bust Pod::To::BigPage>
 
 =head2 Unicode
 
-To include Unicode code points or HTML5 character references in a Rakudoc document, enclose them in  C<E< >>
+To include Unicode code points or HTML5 character references in a RakuDoc document, enclose them in  C<E< >>
 
 C<E< >> can enclose a number, that number is treated as the decimal Unicode value for the desired code point.
 It can also enclose explicit binary, octal, decimal, or hexadecimal numbers using the Raku notations for explicitly based numbers.
@@ -729,11 +729,11 @@ The indexed text can be empty, creating a "zero-width" index entry:
     because you "OR" the "cache".
 =end code
 
-=head1 Rendering Rakudoc
+=head1 Rendering RakuDoc
 
 =head2 HTML
 
-In order to generate HTML from Rakudoc, you need the L<Pod::To::HTML module|https://github.com/raku/Pod-To-HTML>.
+In order to generate HTML from RakuDoc, you need the L<Pod::To::HTML module|https://github.com/raku/Pod-To-HTML>.
 
 If it is not already installed, install it by running the following command:
 C<zef install Pod::To::HTML>
@@ -745,7 +745,7 @@ raku --doc=HTML input.rakudoc > output.html
 
 =head2 Markdown
 
-In order to generate Markdown from Rakudoc, you need the L<Pod::To::Markdown module|https://github.com/softmoth/raku-pod-to-markdown>.
+In order to generate Markdown from RakuDoc, you need the L<Pod::To::Markdown module|https://github.com/softmoth/raku-pod-to-markdown>.
 
 If it is not already installed, install it by running the following command:
 C<zef install Pod::To::Markdown>
@@ -757,7 +757,7 @@ raku --doc=Markdown input.rakudoc > output.md
 
 =head2 Text
 
-In order to generate Text from Rakudoc, you can use the default
+In order to generate Text from RakuDoc, you can use the default
 C<Pod::To::Text> module.
 
 Using the terminal, run the following command:
@@ -771,7 +771,7 @@ You can omit the C<=Text> portion:
 raku --doc input.rakudoc > output.txt
 =end code
 
-You can even embed Rakudoc directly in your program and add the
+You can even embed RakuDoc directly in your program and add the
 traditional Unix command line "--man" option to your program with a
 multi MAIN subroutine like this:
 
@@ -782,20 +782,20 @@ multi MAIN(Bool :$man)
 }
 =end code
 
-Now C<myprogram --man> will output your Rakudoc rendered as a man page.
+Now C<myprogram --man> will output your RakuDoc rendered as a man page.
 
-=head1 Accessing Rakudoc
+=head1 Accessing RakuDoc
 
-In order to access Rakudoc documentation from within a Raku program
+In order to access RakuDoc documentation from within a Raku program
 it is required to use the special C<=> twigil, as documented
 in the L<variables section|/language/variables#The_=_twigil>.
 
-The C<=> twigil provides the introspection over the Rakudoc structure,
+The C<=> twigil provides the introspection over the RakuDoc structure,
 providing a L<Pod::Block> tree root from which it is possible
-to access the whole structure of the Rakudoc document.
+to access the whole structure of the RakuDoc document.
 
 As an example, the following piece of code introspects
-its own Rakudoc documentation:
+its own RakuDoc documentation:
 
 =begin code
 =begin pod

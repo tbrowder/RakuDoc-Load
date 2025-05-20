@@ -1,9 +1,9 @@
 use Test;
-use Pod::Load;
+use RakuDoc::Load;
 
 my $r = q:to/HERE/;
 =begin rakudoc
-I am fully Rakudoc capable, but Raku is NOT!
+I am fully RakuDoc capable, but Raku is NOT!
 =end rakudoc
 HERE
 
@@ -21,7 +21,7 @@ for @lines.kv -> $i, $v {
     say "line $i: '$v'";
 }
 my $str = @lines.tail.trim;
-my $exp = "I am fully Rakudoc capable, but Raku is NOT!";
+my $exp = "I am fully RakuDoc capable, but Raku is NOT!";
 is $str, $exp;
 
 done-testing;

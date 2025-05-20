@@ -1,35 +1,35 @@
 use Test;
-use Pod::Load;
+use RakuDoc::Load;
 
 diag "Testing strings with metadata";
-my $string-with-pod = q:to/EOH/;
-=begin pod :ver(3) :skip-test<Chunk>
+my $string-with-rakudoc = q:to/HERE/;
+=begin rakudoc :ver(3) :skip-test<Chunk>
 This ordinary paragraph introduces a code block:
     $this = 1 * code('block');
     $which.is_specified(:by<indenting>);
-=end pod
-EOH
+=end rakudoc
+HERE
 
-my @pod = load( $string-with-pod );
-ok( @pod, "String load returns something" );
-like( @pod[0].^name, /Pod\:\:/, "The first element of that is a Pod");
-is( @pod[0].config, {:ver(3), :skip-test<Chunk>}, "Config passed" );
+my @rakudoc = load( $string-with-rakudoc );
+ok( @rakudoc, "String load returns something" );
+like( @rakudoc[0].^name, /Pod\:\:/, "The first element of that is a Pod");
+is( @rakudoc[0].config, {:ver(3), :skip-test<Chunk>}, "Config passed" );
 
-my $bare-pod = "Z<this is a comment>";
-@pod = load-pod( $bare-pod );
-is( @pod[0].contents[0].contents[0].type, "Z", "Comment passed on successfully");
+my $bare-rakudoc = "Z<this is a comment>";
+@rakudoc = load-rakudoc( $bare-rakudoc );
+is( @rakudoc[0].contents[0].contents[0].type, "Z", "Comment passed on successfully");
 
-my $string-with-Z = qq:to/EOS/;
-=begin pod
-$bare-pod
-=end pod
-EOS
+my $string-with-Z = qq:to/HERE/;
+=begin rakudoc
+$bare-rakudoc
+=end rakudoc
+HERE
 
-@pod = load( $string-with-Z );
-ok( @pod, "String with comment returns something" );
-is( @pod[0].contents[0].contents[0].type, "Z", "Comment passed on successfully");
+@rakudoc = load( $string-with-Z );
+ok( @rakudoc, "String with comment returns something" );
+is( @rakudoc[0].contents[0].contents[0].type, "Z", "Comment passed on successfully");
 
-@pod = load("=begin pod\nThis could be a comment with C<code>\n=end pod");
-ok( @pod[0].contents[0].contents.grep( { .?type ~~ 'C' } ), "There's a code block");
+@rakudoc = load("=begin rakudoc\nThis could be a comment with C<code>\n=end rakudoc");
+ok( @rakudoc[0].contents[0].contents.grep( { .?type ~~ 'C' } ), "There's a code block");
 
 done-testing;

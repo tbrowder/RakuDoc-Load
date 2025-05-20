@@ -1,4 +1,4 @@
-[![Actions Status](https://github.com/JJ/p6-pod-load/actions/workflows/linux.yml/badge.svg)](https://github.com/JJ/p6-pod-load/actions) [![Actions Status](https://github.com/JJ/p6-pod-load/actions/workflows/macos.yml/badge.svg)](https://github.com/JJ/p6-pod-load/actions) [![Actions Status](https://github.com/JJ/p6-pod-load/actions/workflows/windows.yml/badge.svg)](https://github.com/JJ/p6-pod-load/actions)
+[![Actions Status](https://github.com/tbrowder/RakuDoc-Load/actions/workflows/linux.yml/badge.svg)](https://github.com/tbrowder/RakuDoc-Load/actions) [![Actions Status](https://github.com/tbrowder/RakuDoc-Load/actions/workflows/macos.yml/badge.svg)](https://github.com/tbrowder/RakuDoc-Load/actions) [![Actions Status](https://github.com/tbrowder/RakuDoc-Load/actions/workflows/windows.yml/badge.svg)](https://github.com/tbrowder/RakuDoc-Load/actions)
 
 NAME
 ====
@@ -14,7 +14,7 @@ SYNOPSIS
 
 
 
-    use Pod::Load;
+    use RakuDoc::Load;
     use X::RakuDoc::Load::SourceErrors;
 
     # Read a file handle.
@@ -31,14 +31,14 @@ SYNOPSIS
     # Or ditch the scaffolding and use the string directly:
     @rakudoc = load-rakudoc("This could be a comment with C<code>");
 
-    # If there's an error, it will throw X::Pod::Load::SourceErrors
+    # If there's an error, it will throw X::RakuDoc::Load::SourceErrors
 
 DESCRIPTION
 ===========
 
 
 
-Pod::Load is a module with a simple task: obtain the documentation of an external file in a standard, straightforward way.
+RakuDoc::Load is a module with a simple task: obtain the documentation of an external file in a standard, straightforward way.
 
 Its mechanism was originally inspired by [`Pod::To::BigPage`](https://github.com/perl6/perl6-pod-to-bigpage), from where the code to use the cache was taken.
 
