@@ -1,7 +1,6 @@
 {
   "auth": "zef:tbrowder",
   "authors": [
-    "JJ Merelo",
     "Tom Browder"
   ],
   "build-depends": [
@@ -18,12 +17,10 @@
     "X::RakuDoc::Load::SourceErrors": "lib/X/RakuDoc/Load/SourceErrors.rakumod"
   },
   "resources": [
-    "examples/pod-load-clean.raku",
-    "examples/README.md"
   ],
   "source-url": "https://github.com/tbrowder/RakuDoc-Load.git",
   "tags": [
-    "Rakudoc",
+    "RakuDoc",
     "Pod",
     "Documentation"
   ],
