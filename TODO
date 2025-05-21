@@ -1,0 +1,7 @@
+Before publishing:
+
++ docs:
+  limitations
+    Pod::* still recognized
+    =begin/=end rakudoc NOT recognized
+    newer terminilogy for RakuDoc classes and merhods NOT recognized

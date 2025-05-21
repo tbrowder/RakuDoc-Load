@@ -75,7 +75,7 @@ Loads an IO::Path, returns a RakuDoc object.
 ### sub load-rakudoc
 
 ```raku
-sub load-prakudoc(
+sub load-rakudoc(
     Str $string-with-rakudoc
 ) returns Mu
 ```
@@ -87,7 +87,34 @@ Credits
 
 
 
-The utility of this entire module is the work of my Raku mentor and friend, Dr. Juan J. Merelo (aka @JJ). With his blessing, I started with a copy of his 'Pod::Load', fixed one small documentation error, and then made the following changes:
+The utility of this entire module is due to the work of my Raku mentor and friend, Dr. Juan J. Merelo (aka @JJ). With his permission and encouragement, I started with a copy of his 'Pod::Load:ver<0.7.2>', fixed one small documentation error, and then made the following changes:
+
+    - Revamped the structure to enable the module to be managed by App::Mi6 ('mi6')
+    - Changed to mi6 format
+      + removed .appveyor.yml file
+      + removed 00-meta.t which was failing on Windows
+      + removed .github/workflows/test.yaml file
+      + added .github/workflows/*.yml files, one for each OS:
+          linux, macos, windows
+      + added docs directory
+      + converted old README.md to rakudoc format in docs/README.rakudoc
+      + added dist.ini file with settings to rebuild
+          the README.md with cmd: mi6 build; automatic with cmd: mi6 release
+    - Changed all .p6 to .raku, perl6 to raku, .pm6 to .rakumod, and
+          .pod6 to .rakudoc
+    - Tweaked docs
+      + removed the example with the HEREDOC (<<EOP) which doesn't seem to 
+          work
+      + added missing description of sub load-pod
+    - Added new test 4
+      + ensure =begin/=end rakudoc works like =begin/=end pod
+        This module can load such pod okay, but Raku cannot yet handle it.
+    - Added bad-test/5-rakudo-rakudoc.rakutest for future use when Raku can 
+        handle =begin/=end rakudoc delimeters.
+    - Removed test dependency on Test::META
+    - Removed ./resources/examples directory
+
+This module should continue to be useful during the transition from RakuDoc V1 to RakuDoc V2, and I am grateful to JJ for it.
 
 AUTHOR
 ======
