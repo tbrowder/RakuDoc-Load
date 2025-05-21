@@ -5,7 +5,7 @@ NAME
 
 
 
-**RakuDOC::Load** - Loads and compiles the RakuDoc documentation of an external file or a string
+**RakuDoc::Load** - Loads and compiles the RakuDoc documentation of an external file or a string
 
 **Note**: As of this release, Raku cannot handle '=begin/= rakudoc' document delimiters.
 
@@ -50,7 +50,7 @@ multi sub load(
 ) returns Mu
 ```
 
-Loads a string, returns a Rakudoc object (`$=pod`).
+Loads a string, returns a RakuDoc object (`$=pod`).
 
 ### multi sub load
 
@@ -60,7 +60,7 @@ multi sub load(
 ) returns Mu
 ```
 
-If it's an actual filename, loads a file and returns the Rakudoc object.
+If it's an actual filename, loads a file and returns the RakuDoc object.
 
 ### multi sub load
 
@@ -70,40 +70,36 @@ multi sub load(
 ) returns Mu
 ```
 
-Loads an IO::Path, returns a Rakudoc object.
+Loads an IO::Path, returns a RakuDoc object.
 
-### sub load-pod
+### sub load-rakudoc
 
 ```raku
-sub load-pod(
+sub load-prakudoc(
     Str $string-with-rakudoc
 ) returns Mu
 ```
 
-Loads a string with Rakudoc, returns a Rakudoc object.
+Loads a string with RakuDoc, returns a RakuDoc object.
 
-INSTALL
--------
+Credits
+=======
 
-Do the usual:
 
-```raku
-zef install .
-```
 
-to install this if you've made any modification.
+The utility of this entire module is the work of my Raku mentor and friend, Dr. Juan J. Merelo (aka @JJ). With his blessing, I started with a copy of his 'Pod::Load', fixed one small documentation error, and then made the following changes:
 
 AUTHOR
 ======
 
 
 
-JJ Merelo <jjmerelo@gmail.com>, with help from [Richard Hainsworth](https://github.com/finanalyst)
+Tom Browder 
 
 COPYRIGHT AND LICENSE
 =====================
 
-Copyright 2018-2025 JJ Merelo
+Copyright 2025 Tom Browder (tbrowder@acm.org)
 
-This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
+This library is free software; you may redistribute or modify it under the Artistic License 2.0.
 

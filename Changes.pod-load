@@ -1,0 +1,91 @@
+Revision history for Pod::Load
+
+{{$NEXT}}
+    - First version under App::Mi6 ('mi6') management
+    - Changed to mi6 format
+      + neatened old * entries with line breaks; fixed some typos
+      + removed old mi6 {{$NEXT}} entry at the end of the old change
+          entries
+      + removed .appveyor.yml file
+      + removed 00-meta.t which was failing on Windows
+      + removed .github/workflows/test.yaml file
+      + added .github/workflows/*.yml files, one for each OS:
+          linux, macos, windows
+      + added docs directory
+      + converted old README.md to rakudoc format in docs/README.rakudoc
+      + added dist.ini file with settings to rebuild
+          the README.md with cmd: mi6 build; automatic with cmd: mi6 release
+    - Changed all .p6 to .raku, perl6 to raku, .pm6 to .rakumod, and
+          .pod6 to .rakudoc
+    - Tweaked docs
+      + added note on retaining original name but modernizing internals
+      + removed the example with the HEREDOC (<<EOP) which doesn't seem to 
+          work
+      + added missing description of sub load-pod
+    - Added new test 4
+      + ensure =begin/=end rakudoc works like =begin/=end pod
+        This module can load such pod okay, but Raku cannot yet handle it.
+    - Added bad-test/ 5-rakudo-rakudoc.rakutest for future use when Raku can 
+        handle =begin/=end rakudoc delimeters.
+    - Removed test dependency on Test::META
+
+2022-02-12  jmerelo  <jmerelo@princess-carolyn>
+
+	* lib/X/Pod/Load/SourceErrors.rakumod: For new version, exceptions 
+          extracted and taken out.
+
+2021-11-28  jmerelo  <jmerelo@princess-carolyn>
+
+	* lib/Pod/Load.pm6 (Pod): Adds pod-load to address what was actually 
+          a bug in the documentation (but is actually doable). Thanks to Tom 
+          Browder @tbrowder for the bug report.
+
+2019-06-24  JJMerelo  <jmerelo@bojack>
+
+	* META6.json: Fixes a problem when =output was in the middle of a sentence 
+          and not at the beginning of a line.
+
+2019-06-11  Juan J. merelo  <jmerelo@penny>
+
+	* lib/Pod/Load.pm6: This is mainly a maintenance version to avoid problems 
+          with CPAN.
+
+2019-06-10  Juan J. merelo  <jmerelo@penny>
+
+	* lib/Pod/Load.pm6 (Pod): Fixed error found by Antonio Gámiz
+
+2019-04-13  Juan J. merelo  <jmerelo@penny>
+
+	* lib/Pod/Load.pm6 (Pod): Fixes error with loading scripts; use v6 failed 
+          and besides the output at the end clashed with the module enclosure we use.
+
+2019-03-24  Juan J. merelo  <jmerelo@penny>
+
+	* lib/Pod/Load.pm6 (Pod): This needed to put evaluation in a module just in 
+          case there's something in the namespace that could be repeated. Using a 
+          module with random name hides the variables, does not affect the POD.
+
+2018-12-18  Juan J. merelo  <jmerelo@penny>
+
+	* META6.json: Bumps up with examples and improving documentation.
+	  nqp is not actually a dependency you can list...
+
+2018-12-17  Juan J. merelo  <jmerelo@penny>
+
+	* lib/Pod/Load.pm6 (Pod): Adds some more dependencies, and basically gets 
+          it ready for deployment in github. Thanks to Ashe Connor (@kivikakk) for 
+          the bug reports.
+	  (Pod): Changes to return an array of all the pods available, not just the 
+          first one.
+
+2018-12-15  Juan J. merelo  <jmerelo@penny>
+
+	* lib/Pod/Load.pm6 (Pod): Adds the multi back, and also adds a way to 
+          reconfigure the precomp store. Might be better, though.
+
+2018-12-14  Juan J. merelo  <jmerelo@penny>
+
+	* lib/Pod/Load.pm6 (Pod): Eliminates one multi to avoid confusion with Str. 
+          Leaves just the one.
+
+    - Initial version # unknown date
