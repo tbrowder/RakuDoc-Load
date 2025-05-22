@@ -85,7 +85,7 @@ Loads a string with RakuDoc, returns a RakuDoc object.
 
 B<Note> the routine name B<load-rakudoc> is the only non-multi routine
 and it does B<not> require the enclosing =begin/=end pod statements.
-If you do ad them, you will probably get bad results because those
+If you do add them, you will probably get bad results because those
 statements are not supposed to be legal since RakuDoc is not designed
 to be embedded inside RakuDoc.
 
