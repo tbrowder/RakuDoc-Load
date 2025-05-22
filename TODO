@@ -4,4 +4,5 @@ Before publishing:
   limitations
     Pod::* still recognized
     =begin/=end rakudoc NOT recognized
-    newer terminilogy for RakuDoc classes and merhods NOT recognized
+    newer terminilogy for RakuDoc classes
+      and methods NOT recognized

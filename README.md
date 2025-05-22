@@ -9,6 +9,12 @@ NAME
 
 **Note**: As of this release, Raku cannot handle '=begin/= rakudoc' document delimiters.
 
+**Limitations**:
+
+  * Pod::* remains the only official RakuDoc node type recognized by Raku and is **not** used herein
+
+  * Newer terms for Rakudoc V2 classes and methods are **not** yet recognized by Raku and not used herein
+
 SYNOPSIS
 ========
 
@@ -103,13 +109,13 @@ The utility of this entire module is due to the work of my Raku mentor and frien
     - Changed all .p6 to .raku, perl6 to raku, .pm6 to .rakumod, and
           .pod6 to .rakudoc
     - Tweaked docs
-      + removed the example with the HEREDOC (<<EOP) which doesn't seem to 
+      + removed the example with the HEREDOC (<<EOP) which doesn't seem to
           work
       + added missing description of sub load-pod
     - Added new test 4
       + ensure =begin/=end rakudoc works like =begin/=end pod
         This module can load such pod okay, but Raku cannot yet handle it.
-    - Added bad-test/5-rakudo-rakudoc.rakutest for future use when Raku can 
+    - Added bad-test/5-rakudo-rakudoc.rakutest for future use when Raku can
         handle =begin/=end rakudoc delimeters.
     - Removed test dependency on Test::META
     - Removed ./resources/examples directory
@@ -121,7 +127,7 @@ AUTHOR
 
 
 
-Tom Browder 
+Tom Browder
 
 COPYRIGHT AND LICENSE
 =====================
