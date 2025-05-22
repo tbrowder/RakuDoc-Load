@@ -77,18 +77,25 @@ Loads an IO::Path, returns a RakuDoc object.
 
 =begin code :lang<raku>
 sub load-rakudoc(
-    Str $string-with-rakudoc
+    Str $string-with-rakudoc # without =begin/=end pod
 ) returns Mu
 =end code
 
 Loads a string with RakuDoc, returns a RakuDoc object.
 
+B<Note> the routine name B<load-rakudoc> is the only non-multi routine
+and it does B<not> require the enclosing =begin/=end pod statements.
+If you do ad them, you will probably get bad results because those
+statements are not supposed to be legal since RakuDoc is not designed
+to be embedded inside RakuDoc.
+
 =Credits
 
 The utility of this entire module is due to the work of my Raku mentor
-and friend, Dr. Juan J. Merelo (aka @JJ). With his permission and encouragement,
-I started with a copy of his 'Pod::Load:ver<0.7.2>', fixed one small documentation
-error, and then made the following changes:
+and friend, Dr. Juan J. Merelo (aka @JJ). With his permission and
+encouragement, I started with a copy of his 'Pod::Load:ver<0.7.2>',
+fixed one small documentation error, and then made the following
+changes:
 
     - Revamped the structure to enable the module to be managed by App::Mi6 ('mi6')
     - Changed to mi6 format
