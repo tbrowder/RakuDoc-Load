@@ -7,7 +7,7 @@ NAME
 
 **RakuDoc::Load** - Loads and compiles the RakuDoc documentation of an external file or a string
 
-This is a drop-in replacement for the existing 'Pod::Load' but it will be updated as Raku's handling of RakuDoc changes.
+This is a drop-in replacement for the existing 'Pod::Load', but it will be updated as Raku's handling of RakuDoc changes.
 
 **Note**: As of this release, Raku cannot handle '=begin/= rakudoc' document delimiters.
 
