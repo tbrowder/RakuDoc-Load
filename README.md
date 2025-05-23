@@ -40,7 +40,7 @@ SYNOPSIS
     @rakudoc = load-rakudoc("This could be a comment with C<code>");
 
     # Or ditch the scaffolding and use the string directly
-    # and use the original name for the routine:
+    # using the original name for the routine:
     @rakudoc = load-pod("This could be a comment with C<code>");
 
     # If there's an error, it will throw X::RakuDoc::Load::SourceErrors
