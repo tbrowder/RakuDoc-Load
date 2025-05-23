@@ -82,6 +82,8 @@ Loads an IO::Path, returns a RakuDoc object.
 
 ### sub load-rakudoc
 
+Note also you can still use 'load-pod' which is an alias for 'load-rakudoc'. Thus you should be able to simply replace all instances of 'Pod::Load' with 'RakuDoc::Load' in your code and not touch anything else except tests and unusual usage.
+
 ```raku
 sub load-rakudoc(
     Str $string-with-rakudoc # without =begin/=end pod
@@ -91,8 +93,6 @@ sub load-rakudoc(
 Loads a string with RakuDoc, returns a RakuDoc object.
 
 **Note** the routine name **load-rakudoc** is the only non-multi routine and it does **not** require the enclosing =begin/=end pod statements. If you do add them, you will probably get bad results because those statements are not supposed to be legal since RakuDoc is not designed to be embedded inside RakuDoc.
-
-Note also you can still use 'load-pod' which is now an alias for 'load-pod'.
 
 Credits
 =======

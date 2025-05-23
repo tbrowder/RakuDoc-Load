@@ -1,9 +1,15 @@
 Revision history for RakuDoc::Load
 
 {{$NEXT}}
-    - Add back in old routine name 'load-pod' to ease painless drop-in
-        replacement for Pod::Load
-    - Add back in missing routine descriptions
+
+    - Add back in old routine name 'load-pod' as an alias for
+        'load-rakudoc' to allow this module to be used as a painless
+        drop-in replacement for Pod::Load
+
+    - Add a test for the new alias 'load-pod' in file
+        't/2-metadata.rakutest'
+
+    - Update the docs
 
 0.0.1  2025-05-22T14:35:43-05:00
     - Initial version
