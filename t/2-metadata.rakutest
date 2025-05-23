@@ -19,6 +19,10 @@ my $bare-rakudoc = "Z<this is a comment>";
 @rakudoc = load-rakudoc( $bare-rakudoc );
 is( @rakudoc[0].contents[0].contents[0].type, "Z", "Comment passed on successfully");
 
+# test alias 'load-pod' works
+my @pod = load-pod( $bare-rakudoc );
+is( @pod[0].contents[0].contents[0].type, "Z", "Comment passed on successfully");
+
 my $string-with-Z = qq:to/HERE/;
 =begin rakudoc
 $bare-rakudoc

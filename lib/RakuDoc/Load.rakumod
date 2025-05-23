@@ -87,6 +87,8 @@ $string
 =end pod
 EOP
 }
+# add an alias for the old 'load-pod' routine
+constant &load-pod is export(:DEFAULT) = &load-rakudoc;
 
 #| Loads a Raku code string, returns the RakuDoc that could be included in it
 multi sub load ( Str $string ) is export {

@@ -7,6 +7,8 @@ NAME
 
 **RakuDoc::Load** - Loads and compiles the RakuDoc documentation of an external file or a string
 
+This is a drop-in replacement for the existing 'Pod::Load' but it will be updated as Raku's handling of RakuDoc changes.
+
 **Note**: As of this release, Raku cannot handle '=begin/= rakudoc' document delimiters.
 
 **Limitations**:
@@ -89,6 +91,8 @@ sub load-rakudoc(
 Loads a string with RakuDoc, returns a RakuDoc object.
 
 **Note** the routine name **load-rakudoc** is the only non-multi routine and it does **not** require the enclosing =begin/=end pod statements. If you do add them, you will probably get bad results because those statements are not supposed to be legal since RakuDoc is not designed to be embedded inside RakuDoc.
+
+Note also you can still use 'load-pod' which is now an alias for 'load-pod'.
 
 Credits
 =======

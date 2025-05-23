@@ -1,6 +1,9 @@
 Revision history for RakuDoc::Load
 
 {{$NEXT}}
+    - Add back in old routine name 'load-pod' to ease painless drop-in
+        replacement for Pod::Load
+    - Add back in missing routine descriptions
 
 0.0.1  2025-05-22T14:35:43-05:00
     - Initial version
