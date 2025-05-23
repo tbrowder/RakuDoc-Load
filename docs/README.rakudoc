@@ -56,7 +56,7 @@ From the original author [slightly edited]: The 'Rakudoc' is obtained
 from the file or string via EVAL. That means that it's going to run
 what is actually there. If you don't want that to happen, strip all
 runnable code from the string (or file) before submitting it to
-C<load>.
+C<load> or C<load-pod> or C<load-rakudoc>.
 
 =head3 multi sub load
 

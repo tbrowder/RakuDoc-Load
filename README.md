@@ -55,7 +55,7 @@ From the original author [slightly edited]: `RakuDoc::Load` is a module with a s
 CAVEATS
 =======
 
-From the original author [slightly edited]: The 'Rakudoc' is obtained from the file or string via EVAL. That means that it's going to run what is actually there. If you don't want that to happen, strip all runnable code from the string (or file) before submitting it to `load`.
+From the original author [slightly edited]: The 'Rakudoc' is obtained from the file or string via EVAL. That means that it's going to run what is actually there. If you don't want that to happen, strip all runnable code from the string (or file) before submitting it to `load` or `load-pod` or `load-rakudoc`.
 
 ### multi sub load
 
