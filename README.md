@@ -50,12 +50,12 @@ DESCRIPTION
 
 
 
-From the original author: `RakuDoc::Load` is a module with a simple task (and interface): obtaining the documentation tree of an external file in a standard, straightforward way. Its mechanism (using EVAL) is inspired by [`RakuDoc::To::BigPage`](https://github.com/perl6/perl6-pod-to-bigpage), although it will use precompilation in case of files.
+From the original author [slightly edited]: `RakuDoc::Load` is a module with a simple task (and interface): obtaining the documentation tree of an external file in a standard, straightforward way. Its mechanism (using EVAL) is inspired by [`RakuDoc::To::BigPage`](https://github.com/perl6/perl6-pod-to-bigpage), although it will use precompilation in case of files.
 
 CAVEATS
 =======
 
-From the original author: The pod is obtained from the file or string via EVAL. That means that it's going to run what is actually there. If you don't want that to happen, strip all runnable code from the string (or file) before submitting it to `load`.
+From the original author [slightly edited]: The 'Rakudoc' is obtained from the file or string via EVAL. That means that it's going to run what is actually there. If you don't want that to happen, strip all runnable code from the string (or file) before submitting it to `load`.
 
 ### multi sub load
 
@@ -89,7 +89,7 @@ Loads an IO::Path, returns a RakuDoc object.
 
 ### sub load-rakudoc
 
-Note also you can still use 'load-pod' which is an alias for 'load-rakudoc'. Thus you should be able to simply replace all instances of 'Pod::Load' with 'RakuDoc::Load' in your code and not touch anything else except tests and unusual usage.
+Note you can still use routine 'load-pod' which is an alias for 'load-rakudoc'. Thus you should be able to simply replace all instances of 'Pod::Load' with 'RakuDoc::Load' in your code and not touch anything else except tests and any unusual usage.
 
 ```raku
 sub load-rakudoc(
@@ -124,7 +124,7 @@ The utility of this entire module is due to the work of my Raku mentor and frien
     - Tweaked docs
       + removed the example with the HEREDOC (<<EOP) which doesn't seem to
           work
-      + added missing description of sub load-pod
+      + added missing description of sub load-pod (and now load-rakudoc)
     - Added new test 4
       + ensure =begin/=end rakudoc works like =begin/=end pod
         This module can load such pod okay, but Raku cannot yet handle it.
