@@ -9,7 +9,11 @@ Revision history for RakuDoc::Load
     - Add a test for the new alias 'load-pod' in file
         't/2-metadata.rakutest'
 
-    - Update the docs
+    - Added the original DESCRIPTION's first para from the original author (and credited him)
+
+    - Added the original CAVIAT first para from the original author (and credited him)
+
+    - Other README updates
 
 0.0.1  2025-05-22T14:35:43-05:00
     - Initial version

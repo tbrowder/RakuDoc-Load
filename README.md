@@ -50,9 +50,12 @@ DESCRIPTION
 
 
 
-RakuDoc::Load is a module with a simple task: obtain the documentation of an external file in a standard, straightforward way.
+From the original author: `RakuDoc::Load` is a module with a simple task (and interface): obtaining the documentation tree of an external file in a standard, straightforward way. Its mechanism (using EVAL) is inspired by [`RakuDoc::To::BigPage`](https://github.com/perl6/perl6-pod-to-bigpage), although it will use precompilation in case of files.
 
-Its mechanism was originally inspired by [`Pod::To::BigPage`](https://github.com/perl6/perl6-pod-to-bigpage), from where the code to use the cache was taken.
+CAVEATS
+=======
+
+From the original author: The pod is obtained from the file or string via EVAL. That means that it's going to run what is actually there. If you don't want that to happen, strip all runnable code from the string (or file) before submitting it to `load`.
 
 ### multi sub load
 
