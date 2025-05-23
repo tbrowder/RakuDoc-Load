@@ -2,6 +2,8 @@ Revision history for RakuDoc::Load
 
 {{$NEXT}}
 
+0.0.2  2025-05-23T11:55:20-05:00
+
     - Add back in old routine name 'load-pod' as an alias for
         'load-rakudoc' to allow this module to be used as a painless
         drop-in replacement for Pod::Load
