@@ -7,6 +7,8 @@ NAME
 
 **RakuDoc::Load** - Loads and compiles the RakuDoc documentation of an external file or a string
 
+This is a drop-in replacement for the existing 'Pod::Load', but it will be updated as Raku's handling of RakuDoc changes.
+
 **Note**: As of this release, Raku cannot handle '=begin/= rakudoc' document delimiters.
 
 **Limitations**:
@@ -37,6 +39,10 @@ SYNOPSIS
     # Or ditch the scaffolding and use the string directly:
     @rakudoc = load-rakudoc("This could be a comment with C<code>");
 
+    # Or ditch the scaffolding and use the string directly
+    # using the original name for the routine:
+    @pod-or-rakudoc = load-pod("This could be a comment with C<code>");
+
     # If there's an error, it will throw X::RakuDoc::Load::SourceErrors
 
 DESCRIPTION
@@ -44,9 +50,12 @@ DESCRIPTION
 
 
 
-RakuDoc::Load is a module with a simple task: obtain the documentation of an external file in a standard, straightforward way.
+From the original author [slightly edited]: `RakuDoc::Load` is a module with a simple task (and interface): obtaining the documentation tree of an external file in a standard, straightforward way. Its mechanism (using EVAL) is inspired by [`RakuDoc::To::BigPage`](https://github.com/perl6/perl6-pod-to-bigpage), although it will use precompilation in case of files.
 
-Its mechanism was originally inspired by [`Pod::To::BigPage`](https://github.com/perl6/perl6-pod-to-bigpage), from where the code to use the cache was taken.
+CAVEATS
+=======
+
+From the original author [slightly edited]: The 'Rakudoc' is obtained from the file or string via EVAL. That means that it's going to run what is actually there. If you don't want that to happen, strip all runnable code from the string (or file) before submitting it to `load` or `load-pod` or `load-rakudoc`.
 
 ### multi sub load
 
@@ -79,6 +88,8 @@ multi sub load(
 Loads an IO::Path, returns a RakuDoc object.
 
 ### sub load-rakudoc
+
+Note you can still use routine 'load-pod' which is an alias for 'load-rakudoc'. Thus you should be able to simply replace all instances of 'Pod::Load' with 'RakuDoc::Load' in your code and not touch anything else except tests and any unusual usage.
 
 ```raku
 sub load-rakudoc(
@@ -113,7 +124,7 @@ The utility of this entire module is due to the work of my Raku mentor and frien
     - Tweaked docs
       + removed the example with the HEREDOC (<<EOP) which doesn't seem to
           work
-      + added missing description of sub load-pod
+      + added missing description of sub load-pod (and now load-rakudoc)
     - Added new test 4
       + ensure =begin/=end rakudoc works like =begin/=end pod
         This module can load such pod okay, but Raku cannot yet handle it.
